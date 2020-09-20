@@ -8,7 +8,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class TxdemoApplication implements CommandLineRunner {
     @Autowired
-    BookRepository bookRepository;
+    BookService bookService;
 
     public static void main(String[] args) {
         SpringApplication.run(TxdemoApplication.class, args);
@@ -16,6 +16,9 @@ public class TxdemoApplication implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-
+        Book book = new Book();
+        book.setTitle("ciao");
+        bookService.save(book);
+                
     }
 }
